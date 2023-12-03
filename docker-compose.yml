@@ -1,0 +1,38 @@
+services:
+    mysql:
+        image: 'mysql/mysql-server:8.0'
+        ports:
+            - '6789:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: 'password'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: 'adonisjs'
+            MYSQL_USER: 'admin'
+            MYSQL_PASSWORD: 'password'
+        volumes:
+            - 'adonis-mysql:/var/lib/mysql'
+        networks:
+            - adonis
+        healthcheck:
+            test:
+                - CMD
+                - mysqladmin
+                - ping
+                - '-p${DB_PASSWORD}'
+            retries: 3
+            timeout: 5s
+
+    phpmyadmin:
+       image: 'phpmyadmin:latest'
+       ports:
+          - 8080:80
+       networks:
+          - adonis
+       environment:
+          - PMA_ARBITRARY=1
+networks:
+    adonis:
+        driver: bridge
+volumes:
+    adonis-mysql:
+        driver: local

@@ -3,7 +3,8 @@
   "commands": [
     "./commands",
     "@adonisjs/core/build/commands/index.js",
-    "@eidellev/inertia-adonisjs/build/commands"
+    "@eidellev/inertia-adonisjs/build/commands",
+    "@adonisjs/lucid/build/commands"
   ],
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
   "aliases": {
@@ -24,10 +25,13 @@
   ],
   "providers": [
     "./providers/AppProvider",
+    "./providers/ViteProvider",
     "@adonisjs/core",
     "@adonisjs/view",
     "@adonisjs/session",
-    "@eidellev/inertia-adonisjs"
+    "@eidellev/inertia-adonisjs",
+    "@adonisjs/lucid",
+    "@adonisjs/auth"
   ],
   "metaFiles": [
     {

@@ -5,12 +5,15 @@
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "build",
+    "ace.cjs"
   ],
   "compilerOptions": {
     "outDir": "build",
+    "isolatedModules": true,
     "rootDir": "./",
     "sourceMap": true,
+    "jsx": "react-jsx",
     "paths": {
       "App/*": [
         "./app/*"
@@ -30,7 +33,9 @@
       "@japa/preset-adonis/build/adonis-typings",
       "@adonisjs/view",
       "@adonisjs/session",
-      "@eidellev/inertia-adonisjs"
+      "@eidellev/inertia-adonisjs",
+      "@adonisjs/lucid",
+      "@adonisjs/auth",
     ]
   }
 }

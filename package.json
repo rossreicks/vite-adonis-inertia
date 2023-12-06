@@ -6,7 +6,7 @@
     "dev": "run-p ace:serve vite:serve",
     "ace:serve": "node ace serve --watch",
     "vite:serve": "vite --host --port 3000",
-    "vite:build": "vite build",
+    "vite:build": "vite build --ssr",
     "build": "run-s vite:build ace:build",
     "ace:build": "node ace build --production",
     "start": "node server.js",

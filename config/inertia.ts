@@ -15,7 +15,7 @@ import { InertiaConfig } from '@ioc:EidelLev/Inertia';
 export const inertia: InertiaConfig = {
   view: 'app',
   ssr: {
-    enabled: false,
+    enabled: true,
     autoreload: process.env.NODE_ENV === 'development',
   },
 };

@@ -7,11 +7,21 @@ export default defineConfig(({ command }) => {
     base: command === 'serve' ? '' : '/build/',
     publicDir: 'fake_dir_so_nothing_gets_copied',
     build: {
-      manifest: true,
-      outDir: 'public/build',
+      manifest: false,
+      outDir: 'inertia/ssr',
       rollupOptions: {
-        input: 'resources/js/app.tsx',
+        input: 'resources/js/ssr.tsx',
+        commonjsOptions: {
+          include: ['node_modules/**'],
+          defaultIsModuleExports: true,
+        },
+        output: {
+          format: 'commonjs',
+        },
       },
+    },
+    ssr: {
+      noExternal: ['@inertiajs/react', '@inertiajs/core', 'laravel-vite-plugin'],
     },
     plugins: [react()],
   };

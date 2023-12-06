@@ -11,9 +11,11 @@
   "compilerOptions": {
     "outDir": "build",
     "isolatedModules": true,
+    "module": "ESNext",
     "rootDir": "./",
     "sourceMap": true,
     "jsx": "react-jsx",
+    "esModuleInterop": true,
     "paths": {
       "App/*": [
         "./app/*"
